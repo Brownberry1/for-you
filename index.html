@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>For you</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&family=Manrope:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- One heart shape, reused everywhere -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="rose" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ff9fb5"/>
+        <stop offset="1" stop-color="#e03a69"/>
+      </linearGradient>
+      <symbol id="heart" viewBox="0 0 100 90">
+        <path d="M50 86C10 56 2 34 14 18C26 4 44 10 50 24C56 10 74 4 86 18C98 34 90 56 50 86Z"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <main class="content" id="content">
+
+    <p class="hint" id="hint">Touch the heart</p>
+
+    <button class="seal" id="seal" aria-label="Open your message">
+      <svg viewBox="0 0 100 90" fill="url(#rose)"><use href="#heart"/></svg>
+    </button>
+
+    <!-- The arched window that opens -->
+    <section class="window" id="window" role="dialog" aria-labelledby="title">
+      <button class="close" id="close" aria-label="Close message">&times;</button>
+      <h1 id="title"></h1>
+      <p class="message" id="message" aria-live="polite"></p>
+      <p class="sign" id="sign"></p>
+    </section>
+
+    <!-- A cat on the sill, hearts rise from its head when the message opens -->
+    <div class="cat" aria-hidden="true">
+      <svg class="cat-heart h1" viewBox="0 0 100 90"><use href="#heart"/></svg>
+      <svg class="cat-heart h2" viewBox="0 0 100 90"><use href="#heart"/></svg>
+      <svg class="cat-heart h3" viewBox="0 0 100 90"><use href="#heart"/></svg>
+      <svg class="cat-body" viewBox="0 0 160 120">
+        <path class="tail" d="M118 104C150 104 156 70 140 58"/>
+        <path d="M38 112C34 70 54 56 80 56C106 56 126 70 122 112Z"/>
+        <path d="M52 58L48 24L72 40Z"/>
+        <path d="M108 58L112 24L88 40Z"/>
+        <ellipse cx="80" cy="54" rx="32" ry="26"/>
+        <path class="eyes" d="M64 52Q69 46 74 52M86 52Q91 46 96 52"/>
+        <path class="eyes" d="M77 62Q80 65 83 62"/>
+      </svg>
+    </div>
+    <div class="sill"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
